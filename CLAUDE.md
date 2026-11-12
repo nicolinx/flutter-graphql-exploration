@@ -1,36 +1,54 @@
-# GraphQL in Flutter: mini experiment
+# GraphQL in Flutter: small learning repo
 
-Tiny Flutter project to try GraphQL for the first time and write down what
-actually happens. The point is the notes, not the app. Keep everything small.
+Small open-source Flutter repo to show how to use GraphQL in Flutter, for
+people who want to learn. Beginner friendly, easy to read. The goal is
+clear, minimal examples, not a full app.
 
 ## Scope (do not exceed)
-- One screen only: a list of countries (name, emoji flag, capital).
-- Tapping an item is NOT needed. No navigation, no extra screens.
 - API: https://countries.trevorblades.com/ (public, no token).
   Check that it responds before building. If it is down, stop and tell me.
-- Package: `graphql_flutter`. One query, one `Query` widget (or the hooks
-  equivalent, pick the simplest). No codegen, no state management library,
-  no architecture layers, no tests, no extra packages.
-- Plain Material widgets. No custom theming.
+- Package: `graphql_flutter`. Check its current README for the setup
+  instead of relying on memory for API names.
+- No codegen, no state management library, no architecture layers, no
+  extra packages, no tests, no custom theming. Plain Material widgets.
+- Keep each file short and easy to read. Comments only where they help a
+  beginner.
+
+## Screens (3 max)
+1. **Country list.** One query asking for a few fields only (name, emoji).
+   Shows that you only fetch the fields the screen needs.
+2. **Country detail.** One query that gets nested related data in a single
+   request (e.g. continent, languages, currency). Shows that one request
+   can replace several.
+3. **Error example.** A query that fails on purpose (e.g. a bad field or
+   offline), showing how errors appear in `result.hasException` instead
+   of being thrown, so a `try/catch` does not catch them.
+
+Do not add more screens or features. If something seems worth adding, put
+it in NOTES.md as a question.
 
 ## How to work
-- Build it in small steps. After each step, make sure the app runs before
-  moving on.
-- Use the latest stable `graphql_flutter` and check its README for the
-  current setup. Do not rely on memory for API names.
-- Do not "improve" anything beyond the scope. If something seems worth
-  adding, put it in NOTES.md as a question instead.
+- Build in small steps. After each step, make sure the app runs.
+- Do not "improve" beyond scope.
+- Everything stated in the README or comments must be true for this repo
+  and verified by running it. Do not invent benchmarks, numbers, or
+  claims about performance.
 
-## NOTES.md (most important output)
-Keep a `NOTES.md` while working, in plain factual language:
-1. **Steps**: what was done, in order (setup, client, query, UI).
-2. **Problems**: every error, warning, or confusing moment, with the exact
-   message and what fixed it. Include wrong turns, not just the final path.
-3. **Surprises**: anything that behaved differently from what the docs or
-   expectations suggested.
-4. **Size**: rough number of lines for the GraphQL setup + query + UI.
-5. **Open questions**: things not checked or not understood.
+## README.md (for learners)
+Write in simple English:
+- What the repo is and who it is for.
+- How to run it.
+- A short explanation of each of the 3 screens and which GraphQL idea it
+  shows.
+- A short, honest "good for / not good for" section: general points only
+  (several data sources in one request, fetching only needed fields,
+  typed schema; caching is harder than REST, setup is heavier for small
+  APIs, errors can come back inside a 200 response, deep queries can be
+  expensive on the backend). Do not present these as personal
+  experience or measured results.
 
-Only write what really happened in this project. Do not guess, do not
-invent errors or results, do not add lessons or opinions. If something
-wasn't tested, say "not tested".
+## NOTES.md (for me, not for the README)
+Keep a factual log while working: steps taken, every error or confusing
+moment with the exact message and fix, surprises, and open questions.
+Only what really happened. If something was not tested, write
+"not tested".
