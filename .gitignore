@@ -49,3 +49,7 @@ app.*.map.json
 
 # Personal walkthrough
 *.local.md
+
+# Editor / tool local settings
+.vscode/
+devtools_options.yaml
